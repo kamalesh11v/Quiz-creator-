@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Exam</title>
+</head>
+<body>
+    <h1>Create Exam</h1>
+    <form action="/create_exam" method="post">
+        {% for idx, question in questions %}
+            <input type="checkbox" name="question" value="{{ idx }}"> {{ idx+1 }}. {{ question }}<br>
+            <label for="option{{ idx }}_1">Option 1:</label>
+            <input type="text" name="option{{ idx }}_1"><br>
+            <label for="option{{ idx }}_2">Option 2:</label>
+            <input type="text" name="option{{ idx }}_2"><br>
+            <label for="option{{ idx }}_3">Option 3:</label>
+            <input type="text" name="option{{ idx }}_3"><br>
+            <label for="option{{ idx }}_4">Option 4:</label>
+            <input type="text" name="option{{ idx }}_4"><br>
+            <hr>
+        {% endfor %}
+        <input type="submit" value="Create Exam">
+    </form>
+</body>
+</html>
